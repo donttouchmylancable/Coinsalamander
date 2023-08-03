@@ -1,0 +1,38 @@
+.coincard{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color:darkorange;
+    border:3px solid darkorange;
+    border-radius:10px;
+    margin:10px;
+    
+}
+.coincard img{
+    height:10vh;
+    width:auto;
+}
+.coincard >*{
+    margin:5px 20px;
+}
+.coincard:hover{
+    border:3px solid white;
+    scale:101%;
+    transition: scale 0.3s ease-in;
+
+}
+.topbar{
+    display:flex;
+    background:brown;
+    width: 100vw;
+    
+}
+.topbar>*{
+    margin:10px;
+}
+.content{
+    display:flex;
+}
+.article_list{
+    background: rgb(255, 89, 0);
+}
