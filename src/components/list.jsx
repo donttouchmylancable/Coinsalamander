@@ -16,11 +16,13 @@ function getFilteredCoins(q,array){
 }
 
 function Coinlist(coinsdata){
+    
     const [query,setQuery]=useState('')
     //console.log(Object.values(coinsdata))
     let filtered_coins=getFilteredCoins(query,Object.values(coinsdata)[0]);
+    //onClick={()=>{coinsdata.function('ripple')}}
     return(
-    <div>
+    <div >
         <h1>Cryptocurrency Prices by Market Cap</h1>
     <label> Search for coins: </label>
     <input id='search' onChange={e=>{setQuery(e.target.value)}} ></input>
@@ -28,7 +30,7 @@ function Coinlist(coinsdata){
         {
            filtered_coins.map(c=>{
             return (
-                <Coin key={c.id} info={c}/>
+                <Coin key={c.id} info={c} setCoin={(val)=>{coinsdata.function(val)}}/>
             )
         })
         }
