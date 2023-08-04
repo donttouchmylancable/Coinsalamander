@@ -22,7 +22,7 @@ function Coininfopage(prop){
     },[]
     )
     useEffect(()=>{
-        fetch(`https://newsapi.org/v2/everything?q=${prop.coin}&from=2023-08-03&sortBy=popularity&apiKey=45009c0865eb43a2a28f5368a237642e`,{mode:"cors"})
+        fetch(`https://newsapi.org/v2/everything?q=${prop.coin+' Crypto'}&from=2023-08-03&sortBy=popularity&apiKey=45009c0865eb43a2a28f5368a237642e`,{mode:"cors"})
         .then((res)=>{
             let data=res.json();
             return data
@@ -36,8 +36,8 @@ function Coininfopage(prop){
 
     return (
         <div className='coininfopage'>
-            <h1>{prop.coin}</h1>
-            <div dangerouslySetInnerHTML={{ __html: info }} />
+            <h1>{prop.coin.toUpperCase()}</h1>
+            <div className='coindesc'dangerouslySetInnerHTML={{ __html: info }} />
             <Articles list={articles}/>
             
         </div>
