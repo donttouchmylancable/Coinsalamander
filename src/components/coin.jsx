@@ -1,7 +1,7 @@
-
+import selectedCoin from '../App'
 function coin(c){
     return(
-        <div className="coincard" onClick={()=>{goto(c.info.name)}} >
+        <div className="coincard" onClick={()=>{c.setCoin(c.info.id.toLowerCase());console.log('coincard clicked')}} >
             <h1 className="rank">{c.info.market_cap_rank}.</h1>
             <img src={c.info.image}></img>
             <div>
