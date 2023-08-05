@@ -2,7 +2,7 @@ import { useState ,useEffect} from 'react'
 import coingecko from './assets/coingecko_logo.png'
 import coinsalamander from './assets/coinsalamander.png'
 import Coinlist from './components/list.jsx'
-import Articles from './components/articles'
+import Coininfopage from './components/coininfopage.jsx'
 import axios from 'axios';
 import './App.css'
 
@@ -53,7 +53,7 @@ function App() {
 
           <button onClick={()=>{setContent("coinlist");setSelectedCoin("")}}>←</button>
 
-          <Articles coin={selectedCoin}/>
+          <Coininfopage coin={selectedCoin}/>
 
         
         <div className='footerbar'>
