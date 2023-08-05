@@ -3,13 +3,13 @@ import Article from './article.jsx';
 function Articles(props){
     
     if(props.list.articles){
-        console.log(props.list.articles)
+        //console.log(props.list.articles)
     return (
         <div>
         {
             props.list.articles.map(a=>{
                 let id=uuidv4()
-                console.log(a)
+                //console.log(a)
                 return(<Article key={id} article={a}/>)         
             })     
         

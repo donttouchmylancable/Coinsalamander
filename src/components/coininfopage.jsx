@@ -1,5 +1,6 @@
 import { useState ,useEffect} from 'react'
 import Articles from './articlelist.jsx'
+import TradingViewWidget from './chart.jsx'
 function Coininfopage(prop){
 
     if (prop.coin==""){
@@ -7,8 +8,10 @@ function Coininfopage(prop){
             <div></div>
         )
     }
+    
     const [info,setInfo]=useState("")
     const [articles,setArticles]=useState([])
+    const [symbol,setSymbol]=useState("")
 
     useEffect(()=>{
         fetch(`https://api.coingecko.com/api/v3/coins/${prop.coin}`,{mode:"cors"})
@@ -18,6 +21,22 @@ function Coininfopage(prop){
         })
         .then((d)=>{
             setInfo(d.description.en);
+        
+       
+        })
+    },[]
+    )
+    useEffect(()=>{
+        fetch(`https://api.coingecko.com/api/v3/coins/${prop.coin}`,{mode:"cors"})
+        .then((res)=>{
+            let data=res.json();
+            return data
+        })
+        .then((d)=>{
+            
+            setSymbol(d.symbol)
+           
+        
         })
     },[]
     )
@@ -38,6 +57,7 @@ function Coininfopage(prop){
         <div className='coininfopage'>
             <h1>{prop.coin.toUpperCase()}</h1>
             <div className='coindesc'dangerouslySetInnerHTML={{ __html: info }} />
+            <TradingViewWidget sym={symbol}/>
             <Articles list={articles}/>
             
         </div>
