@@ -5,7 +5,7 @@ function Articles(props){
     if(props.list.articles){
         //console.log(props.list.articles)
     return (
-        <div>
+        <div id={'articles'}>
         {
             props.list.articles.map(a=>{
                 let id=uuidv4()

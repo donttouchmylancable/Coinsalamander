@@ -40,8 +40,49 @@ button {
         
         
     }
-    
+
+
+    #coindesc{
+        padding:10px;
+        margin:0;
+        width:100vw;
+    }
+    #article{
+        width:90vw;
+        margin:0;
+        margin-top:20px;
+        margin-left:18px;
+        padding:0;
+    }
+    .tradingview-widget-container{
+        width:100vw;
+        height:auto;
+        overflow:hidden;
+        margin-left:0;
+    }
+    .coininfopage{
+        width:100vw;
+       
+        overflow:hidden;
+    }
+  
 }
+#coinlistwrapper{
+    width:100vw;
+}
+#title{
+    margin:50px ;
+}
+label{
+    margin-left:10px;
+}
+#search{
+    background-color: brown;
+    border:0;
+    padding:5px;
+    border-radius: 4px;
+}
+
 
 .coincard{
     display:flex;
@@ -113,7 +154,8 @@ body{
     margin:30px;
 }
 .coininfopage h1{
-    margin:10px 35vw;
+    
+    margin:10px;
 }
 @media (max-width: 480px) {
 	.article{

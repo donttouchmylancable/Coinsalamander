@@ -44,7 +44,7 @@ function Coininfopage(prop){
     return (
         <div className='coininfopage'>
             <h1>{prop.coin.toUpperCase()}</h1>
-            <div className='coindesc'dangerouslySetInnerHTML={{ __html: info }} />
+            <div id={'coindesc'} className='coindesc'dangerouslySetInnerHTML={{ __html: info }} />
             <TradingViewWidget sym={symbol}/>
             <Articles list={articles}/>
             
