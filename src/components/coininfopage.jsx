@@ -21,25 +21,13 @@ function Coininfopage(prop){
         })
         .then((d)=>{
             setInfo(d.description.en);
+            setSymbol(d.symbol)
         
        
         })
     },[]
     )
-    useEffect(()=>{
-        fetch(`https://api.coingecko.com/api/v3/coins/${prop.coin}`,{mode:"cors"})
-        .then((res)=>{
-            let data=res.json();
-            return data
-        })
-        .then((d)=>{
-            
-            setSymbol(d.symbol)
-           
-        
-        })
-    },[]
-    )
+
     useEffect(()=>{
         fetch(`https://newsapi.org/v2/everything?q=${prop.coin+' Crypto'}&from=2023-08-03&sortBy=popularity&apiKey=45009c0865eb43a2a28f5368a237642e`,{mode:"cors"})
         .then((res)=>{
