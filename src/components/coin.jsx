@@ -1,16 +1,27 @@
+import {useState,useRef, useEffect} from 'react'
 import selectedCoin from '../App'
 function coin(c){
+    const [open,setOpen]=useState(false);//visible
+    const myRef= useRef();
+    useEffect(()=>{
+        
+        const observer= new IntersectionObserver((entries)=>{
+            const entry=entries[0]
+            setOpen(entry.isIntersecting);
+        })
+        observer.observe(myRef.current)
+    },[])
     return(
-        <div className="coincard" onClick={()=>{c.setCoin(c.info.id.toLowerCase());console.log('coincard clicked')}} >
-            <h1 className="rank">{c.info.market_cap_rank}.</h1>
-            <img src={c.info.image}></img>
-            <div>
+        <div ref={myRef} className={open?'coincard':'coincard_invisible'} onClick={()=>{c.setCoin(c.info.id.toLowerCase());console.log('coincard clicked')}} >
+            <h1 id={'rank'} className="rank">{c.info.market_cap_rank}.</h1>
+            <img id={'coinlogo'} src={c.info.image}></img>
+            <div id={'nameandsymbol'}>
                 <p className="name">{c.info.name}</p>
                 <p className="symbol">${c.info.symbol}</p>
             </div>
-            <p className="price">{c.info.current_price}$</p>
+            <p id={'price'}className="price">{c.info.current_price<0.0001?Number(c.info.current_price).toExponential():c.info.current_price}$</p>
             <Percentage value={c.info.price_change_percentage_24h}/>
-            <p className="ath">All time high: {c.info.ath}$</p>
+            <p id={'ath'}className="ath">All time high: {c.info.ath}$</p>
 
            
         </div>
@@ -22,24 +33,24 @@ function goto(c){
     location.href=`https://www.coingecko.com/en/coins/${id}`
 }
 function Percentage(input){
-    
+    const value=Number(input.value).toFixed(1);
     let pstyle={
         color:'grey'
     }
-    if (input.value>0){
+    if (value>0){
         pstyle={
             color:'green',
         }
         
     }
-    if (input.value<0){
+    if (value<0){
         pstyle={
             color:'red'
         }
         
     }
     return(
-            <p className="pricechange24" style={pstyle}>{input.value}%</p>
+            <p id={'percentage'} className="pricechange24" style={pstyle}>{value}%</p>
         )
 }
 export default coin;

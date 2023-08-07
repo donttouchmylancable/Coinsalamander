@@ -1,5 +1,6 @@
 import { useState ,useEffect} from 'react'
 import coingecko from './assets/coingecko_logo.png'
+import github from './assets/github.png'
 import coinsalamander from './assets/coinsalamander.png'
 import Coinlist from './components/list.jsx'
 import Coininfopage from './components/coininfopage.jsx'
@@ -49,6 +50,7 @@ function App() {
         <div className='topbar'>
             <img className='logo' src={coinsalamander}></img>
             <h1>Coinsalamander</h1>
+  
         </div>
 
           <button onClick={()=>{setContent("coinlist");setSelectedCoin("")}}>←</button>
@@ -59,6 +61,9 @@ function App() {
         <div className='footerbar'>
           <img className='logo' src={coingecko}></img>
           <p>Powered by CoinGecko</p>
+
+          <img className='logo' src={github}></img>
+          <p><a href='https://github.com/donttouchmylancable'>github.com/donttouchmylancable</a></p>
         </div>
       </>
     )
@@ -77,6 +82,8 @@ function App() {
       <div className='footerbar'>
         <img className='logo' src={coingecko}></img>
         <p>Powered by CoinGecko</p>
+        <img className='logo' src={github}></img>
+          <p><a href='https://github.com/donttouchmylancable'>github.com/donttouchmylancable</a></p>
       </div>
     </>
   )

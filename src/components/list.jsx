@@ -22,8 +22,8 @@ function Coinlist(coinsdata){
     let filtered_coins=getFilteredCoins(query,Object.values(coinsdata)[0]);
     //onClick={()=>{coinsdata.function('ripple')}}
     return(
-    <div >
-        <h1>Cryptocurrency Prices by Market Cap</h1>
+    <div id={'coinlistwrapper'}>
+        <h1 id={'title'}>Cryptocurrency Prices by Market Cap</h1>
     <label> Search for coins: </label>
     <input id='search' onChange={e=>{setQuery(e.target.value)}} ></input>
     <div className='Coinlist'>
